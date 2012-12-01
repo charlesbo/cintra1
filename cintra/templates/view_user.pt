@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+  <title>${user.username} details</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta name="keywords" content="python web application" />
+  <meta name="description" content="pyramid web application" />
+  <link rel="shortcut icon"
+        href="/static/cintra.ico" />
+  <link rel="stylesheet"
+        href="/static/pylons.css"
+        type="text/css" media="screen" charset="utf-8" />
+  <!--[if lte IE 6]>
+  <link rel="stylesheet"
+        href="/static/ie6.css"
+        type="text/css" media="screen" charset="utf-8" />
+  <![endif]-->
+</head>
+<body>
+  <div id="wrap">
+    <div id="top-small">
+      <div class="top-small align-center">
+        <div>
+          <img width="220" height="50" alt="pyramid"
+        src="/static/cintra_small.png" />
+        </div>
+      </div>
+    </div>
+    <div id="middle">
+    </div>
+    <div id="bottom">
+      <div class="bottom">
+      	<div> User Name:
+          <div tal:replace="structure user.username">
+            User name.
+          </div><br/>
+	</div>
+	<div> Nick Name:
+          <div tal:replace="structure user.nickname">
+            Nick name.
+          </div>
+	</div>
+        <div> ID Number:
+	  <div tal:replace="structure user.cintraid">
+            User ID.
+          </div><br/>
+	</div>
+	<div> E-Mail Address:
+          <div tal:replace="structure user.email">
+            Email address.
+          </div><br/>
+	</div>
+	<div> Balance:  
+          <div tal:replace="structure user.balance">
+            Balance.
+          </div><br/>
+	</div>
+	<div> Points:  
+          <div tal:replace="structure user.points">
+            Points.
+          </div><br/>
+	</div>
+	<div> Experience:  
+          <div tal:replace="structure user.experience">
+            Experience.
+          </div><br/>
+	</div>
+	<div style='float:left'>
+	<form method='get' action="${request.application_url}/users/${user.cintraid}/edit">
+	  <button type='submit' >Edit this user</button>
+	</form>	
+	</div>
+	<div style='float:left'>
+	<form method='get' action="${request.application_url}/users">
+	  <button type='submit' >View All Users</button>
+	</form>
+	</div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footer"
+         >&copy; Copyright 2012-2013, Beyondcloud inc..</div>
+  </div>
+</body>
+</html>
