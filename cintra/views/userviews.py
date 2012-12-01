@@ -49,7 +49,6 @@ class UserViews(object):
 
             user.pwd = saltPeper(pwd)
             self.context[cintraid] = user
-            self.context['cintraids'].append(cintraid)
             approot = self.context.__parent__
             bk = Book(user=user)
             approot['books'][cintraid] = [bk]
